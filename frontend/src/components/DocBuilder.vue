@@ -198,8 +198,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(item, i) in d.items" :key="i" :class="i%2===0 ? 'bg-gray-50' : 'bg-white'">
-                    <td class="px-4 py-2.5 text-gray-400">{{ i+1 }}.</td>
+                  <tr v-for="(item, i) in d.items" :key="i" :class="(i as number)%2===0 ? 'bg-gray-50' : 'bg-white'">
+                    <td class="px-4 py-2.5 text-gray-400">{{ (i as number)+1 }}.</td>
                     <td class="px-4 py-2.5 font-medium text-gray-900">{{ item.commodity || '—' }}</td>
                     <td class="px-4 py-2.5 text-right text-gray-600">{{ fmtNum(item.qty_kg) }}</td>
                     <td class="px-4 py-2.5 text-right text-gray-600">{{ fmtIDR(item.price_per_kg) }}</td>
@@ -241,8 +241,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(item, i) in d.items" :key="i" :class="i%2===0 ? 'bg-gray-50' : 'bg-white'">
-                    <td class="px-4 py-2.5 text-gray-400">{{ i+1 }}.</td>
+                  <tr v-for="(item, i) in d.items" :key="i" :class="(i as number)%2===0 ? 'bg-gray-50' : 'bg-white'">
+                    <td class="px-4 py-2.5 text-gray-400">{{ (i as number)+1 }}.</td>
                     <td class="px-4 py-2.5 font-medium">{{ item.category || '—' }}</td>
                     <td class="px-4 py-2.5 text-gray-600">{{ item.description || '—' }}</td>
                     <td class="px-4 py-2.5 text-right font-semibold">{{ fmtIDR(item.amount) }}</td>
@@ -285,8 +285,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(item, i) in d.items" :key="i" :class="i%2===0 ? 'bg-gray-50' : 'bg-white'">
-                    <td class="px-4 py-2.5 text-gray-400">{{ i+1 }}.</td>
+                  <tr v-for="(item, i) in d.items" :key="i" :class="(i as number)%2===0 ? 'bg-gray-50' : 'bg-white'">
+                    <td class="px-4 py-2.5 text-gray-400">{{ (i as number)+1 }}.</td>
                     <td class="px-4 py-2.5 font-medium">{{ item.commodity || '—' }}</td>
                     <td class="px-4 py-2.5 text-right">{{ fmtNum(item.qty_kg) }}</td>
                     <td class="px-4 py-2.5 text-right font-semibold">{{ fmtIDR(item.total_value) }}</td>
@@ -330,8 +330,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(item, i) in d.items" :key="i" :class="i%2===0 ? 'bg-gray-50' : 'bg-white'">
-                    <td class="px-4 py-2.5 text-gray-400">{{ i+1 }}.</td>
+                  <tr v-for="(item, i) in d.items" :key="i" :class="(i as number)%2===0 ? 'bg-gray-50' : 'bg-white'">
+                    <td class="px-4 py-2.5 text-gray-400">{{ (i as number)+1 }}.</td>
                     <td class="px-4 py-2.5 font-medium">{{ item.category || '—' }}</td>
                     <td class="px-4 py-2.5 text-right font-semibold">{{ fmtIDR(item.amount) }}</td>
                   </tr>
@@ -401,12 +401,12 @@ const DOC_META: Record<string, { title: string }> = {
   previous_fund_usage_report: { title: 'Laporan Penggunaan Dana Sebelumnya' },
 };
 
-const itemLabel: Record<string, string> = {
+const itemLabel: string = ({
   proforma_invoice: 'Item Komoditas',
   fund_estimate: 'Rincian Estimasi',
   commodity_recap: 'Daftar Komoditas',
   previous_fund_usage_report: 'Rincian Penggunaan',
-}[props.docType] ?? 'Item';
+} as Record<string, string>)[props.docType] ?? 'Item';
 
 // ── Form state ───────────────────────────────────────────────────────────────
 const d = reactive<any>(buildDefault());

@@ -94,8 +94,7 @@ const fmtDate = (d: string) => d ? new Date(d).toLocaleDateString('id-ID') : '-'
 
 const statusBadge = (s: string) => ({
   'bg-gray-100 text-gray-600': s === 'draft' || s === 'pending',
-  'bg-green-100 text-green-700': s === 'submitted',
-  'bg-green-100 text-green-700': s === 'approved',
+  'bg-green-100 text-green-700': s === 'submitted' || s === 'approved',
   'bg-red-100 text-red-700': s === 'rejected',
 });
 
