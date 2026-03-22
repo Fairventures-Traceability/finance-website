@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(mysql -u root --connect-timeout=5 -e \"SELECT VERSION\\(\\);\")",
+      "Read(//c/Program Files/**)",
+      "Read(//c/xampp/mysql/bin//**)",
+      "Read(//c/laragon/bin/**)",
+      "Bash(\"/c/laragon/bin/mysql/mysql.exe\" -u root --connect-timeout=5 -e \"SELECT VERSION\\(\\);\")",
+      "Bash(\"/c/xampp/mysql/bin/mysql.exe\" -u root --connect-timeout=5 -e \"SELECT VERSION\\(\\);\")",
+      "Bash(\"/c/xampp/mysql/bin/mysql.exe\" -u root finance_db -e \"SHOW TABLES; SELECT entry_number, entry_date, snbs_mandiri_balance, kups_bni_balance, cash_on_hand_balance FROM general_ledger_entries;\")",
+      "Bash(\"/c/traceability_project/finance-website/backend/.env\":*)",
+      "Bash(npx tsc:*)",
+      "Bash(\"/c/xampp/mysql/bin/mysql.exe\" -u root finance_db -e \"SHOW TABLES LIKE ''stock_checks'';\")",
+      "Bash(\"/c/xampp/mysql/bin/mysql.exe\" -u root finance_db -e \":*)",
+      "Bash(npx vue-tsc:*)",
+      "Bash(\"/c/xampp/mysql/bin/mysql.exe\" -u root finance_db -e \"SELECT id, name, email, role, is_active FROM users;\")",
+      "Bash(node -e \":*)",
+      "Bash(HASH='$2b$10$KbVXQkwAXQIUBAVvXYq1uud7UsWJDSoQx7J9J58c00AeRYhzmGQo.')",
+      "Bash(__NEW_LINE_a605aa75beb5ef8d__ \"/c/xampp/mysql/bin/mysql.exe\" -u root finance_db -e \":*)",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root finance_db -e \"ALTER TABLE ebanking_transactions MODIFY COLUMN source_account ENUM\\(''snbs_mandiri'',''kups_bni'',''cash_on_hand'',''ending_balance'',''cash_injection'',''direct_selling_kups''\\) NOT NULL;\")",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root finance_db -e \"SELECT id, file_path FROM payment_request_documents;\")",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root finance_db -e \"UPDATE payment_request_documents SET file_path = REPLACE\\(file_path, ''\\\\\\\\'', ''/''\\);\")",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root finance_db -e \"UPDATE payment_request_documents SET file_path = REPLACE\\(file_path, CHAR\\(92\\), ''/''\\);\")",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(sed -i -e 's/bg-blue-50/bg-green-50/g' -e 's/bg-blue-100/bg-green-100/g' -e 's/bg-blue-200/bg-green-200/g' -e 's/bg-blue-600/bg-green-700/g' -e 's/bg-blue-700/bg-green-800/g' -e 's/bg-blue-800/bg-green-900/g' -e 's/hover:bg-blue-50/hover:bg-green-50/g' -e 's/hover:bg-blue-100/hover:bg-green-100/g' -e 's/hover:bg-blue-700/hover:bg-green-800/g' -e 's/text-blue-50/text-green-50/g' -e 's/text-blue-200/text-green-200/g' -e 's/text-blue-600/text-green-600/g' -e 's/text-blue-700/text-green-700/g' -e 's/border-blue-200/border-green-200/g' -e 's/border-blue-500/border-green-500/g' -e 's/ring-blue-500/ring-green-500/g' -e 's/ring-blue-600/ring-green-600/g' -e 's/hover:border-blue-200/hover:border-green-200/g' -e 's/hover:text-blue-700/hover:text-green-700/g' -e 's/focus:ring-blue-500/focus:ring-green-500/g' -e 's/focus:ring-blue-600/focus:ring-green-600/g' \"$f\")",
+      "Bash(echo \"Done: $f\")",
+      "Bash(done)",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root finance_db -e \"SHOW TABLES;\")",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root finance_db -e \":*)",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root finance_db -e \"SELECT id, reference_number, status, submitted_by FROM payment_requests;\")",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root finance_db -e \"SELECT id, name, role FROM users;\")",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root finance_db -e \"SELECT id, payment_request_id, document_type, file_name FROM payment_request_documents;\")",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root finance_db -e \"DESCRIBE stock_checks;\")",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root finance_db -e \"DESCRIBE final_invoices;\")",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root finance_db -e \"SELECT reference_number, status, estimated_fund_needs, submitted_at FROM payment_requests ORDER BY id;\")",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root finance_db -e \"SELECT id, payment_request_id, document_type, file_name, file_path FROM payment_request_documents ORDER BY id;\")"
+    ]
+  }
+}
