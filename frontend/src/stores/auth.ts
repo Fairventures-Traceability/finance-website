@@ -11,7 +11,17 @@ export interface AuthUser {
 
 export const useAuthStore = defineStore('auth', () => {
   const token = ref<string | null>(localStorage.getItem('token'));
-  const user = ref<AuthUser | null>(JSON.parse(localStorage.getItem('user') || 'null'));
+  const _parseUser = (): AuthUser | null => {
+    try {
+      const stored = localStorage.getItem('user');
+      return stored ? JSON.parse(stored) : null;
+    } catch {
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
+      return null;
+    }
+  };
+  const user = ref<AuthUser | null>(_parseUser());
 
   const isAuthenticated = computed(() => !!token.value && !!user.value);
   const role = computed(() => user.value?.role || null);
